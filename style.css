@@ -116,6 +116,16 @@ a:hover {
     color: var(--color-secondary);
 }
 
+main#primary {
+    min-height: calc(85vh - 85px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 /* --------------------------------------------------
    Header
 -------------------------------------------------- */
@@ -220,6 +230,7 @@ input[type="submit"]:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
+    padding-bottom: 1rem;
 }
 
 .card {
@@ -228,6 +239,8 @@ input[type="submit"]:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
     padding: 20px;
     text-align: center;
+    box-shadow: 0 0 5px 1px rgba(177, 18, 38, 0.25);
+    border-radius: 1rem;
 }
 
 /* --------------------------------------------------
@@ -236,7 +249,7 @@ input[type="submit"]:hover {
 .site-footer {
     background-color: var(--color-footer);
     color: var(--color-text-light);
-    padding: 50px 0;
+    padding: 30px 0;
 }
 
 .site-footer a {

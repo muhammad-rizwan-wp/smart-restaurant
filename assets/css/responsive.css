@@ -1,0 +1,8 @@
+@media (max-width:768px) {
+
+    .menu-grid,
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
