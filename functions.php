@@ -42,7 +42,7 @@ function smart_restaurant_enqueue_assets(){
 
    /* Responsive CSS */ 
    wp_enqueue_style(
-		'smart-restaurant-main',
+		'smart-restaurant-responsive',
 		get_template_directory_uri() . '/assets/css/responsive.css',
 		array(),
 		wp_get_theme()->get( 'Version' )
@@ -55,6 +55,23 @@ function smart_restaurant_enqueue_assets(){
 		array( 'jquery' ),
 		wp_get_theme()->get( 'Version' ),
 		true
+	);
+	/* Menu Filter JS */ 
+	wp_enqueue_script(
+		'menu-filter',
+		get_template_directory_uri() . '/assets/js/menu-filter.js',
+		array(),
+		null,
+		true
+	);
+
+	/* Localize AJAX */
+	wp_localize_script(
+		'menu-filter',
+		'menuAjax',
+		array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		)
 	);
 
 }
@@ -77,6 +94,12 @@ require get_template_directory(  ) . '/inc/custom-taxonomies.php';
 -------------------------------------------------- */
 
 require get_template_directory(  ) . '/inc/helpers.php';
+
+/* --------------------------------------------------
+   AJAX
+-------------------------------------------------- */
+
+require_once get_template_directory() . '/inc/ajax-menu-filter.php';
 
 /* --------------------------------------------------
    Widgets

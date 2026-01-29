@@ -9,8 +9,23 @@ get_header(); ?>
 
 			<h1><?php the_title(); ?></h1>
 
+			<div class="menu-meta">
+				<p>
+					<strong>Price:</strong> <?php the_field( 'price' ); ?>
+				</p>
+			</div>
+
 			<div class="menu-content">
 				<?php the_content(); ?>
+			</div>
+
+			<div class="menu-meta">
+				<p>
+					<strong>Calories:</strong> <?php the_field( 'calories' ); ?>
+				</p>
+				<p>
+					<strong>Ingredients:</strong> <?php the_field( 'ingredients' ); ?>
+				</p>
 			</div>
 		</article>
 

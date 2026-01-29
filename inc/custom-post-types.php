@@ -5,7 +5,7 @@ if(!defined('ABSPATH')) exit;
 /* MENU ITEMS */
 register_post_type('menu_item', [
     'labels' => [
-        'name' => 'Menu Items',
+        'name' => 'Menus',
         'singular_name' => 'Menu Item'
     ],
     'public' => true,

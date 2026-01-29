@@ -1,0 +1,77 @@
+/* Menu TABs */
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.menu-tabs .tab {
+    padding: 10px 20px;
+    background: #eee;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 400;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.menu-tabs .tab.active {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 1.5rem;
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.menu-price {
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.menu-meta {
+    margin-top: 20px;
+    line-height: 1.8;
+}
+
+.menu-item {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease;
+}
+
+.menu-item.fade {
+    animation: fadeSlide 0.4s ease forwards;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-grid.loading {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* end Menu TABs */
