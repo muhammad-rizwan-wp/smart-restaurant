@@ -2,7 +2,7 @@
 /**
  * Smart Restaurant Theme Functions
  * 
- * @package Smart_Restuarant
+ * @package Smart_Restaurant
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -78,6 +78,43 @@ function smart_restaurant_enqueue_assets(){
 add_action( 'wp_enqueue_scripts', 'smart_restaurant_enqueue_assets' );
 
 /* --------------------------------------------------
+   Enqueue Admin Assets
+-------------------------------------------------- */
+
+function smart_restaurant_admin_assets( $hook ) {
+
+	// Example: only load on your sales dashboard page
+	if ( $hook !== 'toplevel_page_smart-restaurant' ) {
+		return;
+	}
+
+	/* Chart.js */
+	wp_enqueue_script(
+		'chart-js',
+		'https://cdn.jsdelivr.net/npm/chart.js',
+		array(),
+		null,
+		true
+	);
+
+	/* Admin Charts JS */
+	wp_enqueue_script(
+		'sr-admin-charts',
+		get_template_directory_uri() . '/assets/js/admin-charts.js',
+		array( 'chart-js' ),
+		null,
+		true
+	);
+
+	/* Admin CSS */
+	wp_enqueue_style(
+		'sr-admin-style',
+		get_template_directory_uri() . '/assets/css/admin.css'
+	);
+}
+add_action( 'admin_enqueue_scripts', 'smart_restaurant_admin_assets' );
+
+/* --------------------------------------------------
    Register Custom Post Types
 -------------------------------------------------- */
 
@@ -100,6 +137,15 @@ require get_template_directory(  ) . '/inc/helpers.php';
 -------------------------------------------------- */
 
 require_once get_template_directory() . '/inc/ajax-menu-filter.php';
+
+/* --------------------------------------------------
+   Load Admin Side SALES files
+-------------------------------------------------- */
+
+require_once get_template_directory() . '/inc/install.php';
+require_once get_template_directory() . '/inc/sales-functions.php';
+require_once get_template_directory() . '/inc/sales-data.php';
+require_once get_template_directory() . '/inc/admin-menu.php';
 
 /* --------------------------------------------------
    Widgets
